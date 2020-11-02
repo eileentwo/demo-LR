@@ -1,0 +1,20 @@
+
+.flex-around{display: flex;align-items: center;justify-content: space-around;}
+.flex-andmid{
+  display: flex;align-items: center;
+}
+.flex-all{display: flex;align-items: center;justify-content: center;}
+.column{flex-direction: column;}
+.month{text-align: center;font-size: 28rpx;height: 66rpx;line-height: 66rpx;background-color: #fafafa;
+  color: #909399;}
+/* 日历 */
+.calendar{width: 750rpx;background: #fff;padding: 0 0 20rpx;}
+.red{color: #f00;}
+.over{color: #999;}
+.date-box{flex-wrap: wrap;}
+.date-box .datehead{font-size: 24rpx;position: relative;width:106rpx;height: 106rpx;color: #ccc;text-align: center;}
+.date-box .color6{
+  color: #666;
+}
+.date-box .nowDay{color: #fff;background-color: #f00;border-radius: 10rpx;font-size: 20rpx;}
+.date-box .nowDay .red{color: #fff;}

@@ -1,0 +1,18 @@
+<!-- 日历主体 -->
+<view class='calendar' catchtap="returnFn" catchtouchmove="returnFn">
+  <view class="month">{{year}}年{{month}}月</view>
+  <view class='date-box flex-andmid'>
+    <block wx:for='{{dateArr}}' wx:key='index'>
+      <picker  bindchange="selectFn"  class="datehead flex-all column  {{item.retail_price>0?'color6':''}} {{item.isOver?'over':item.checked ? 'nowDay':''}}" data-index="{{index}}" wx:if="{{item.periodList&&item.periodList.length>0}}"   value="{{index}}" range="{{item.times}}">
+        <view class="red" wx:if="{{isToday == item.isToday}}">今天</view>
+        <view>{{item.day}}</view>
+        <view wx:if="{{item.retail_price}}" class="red">￥{{item.retail_price}}</view>
+      </picker>
+      <view class="datehead flex-all column  {{item.retail_price?'color6':''}} {{item.isOver?'over':item.checked ? 'nowDay':''}}" catchtap='selectFn' data-index="{{index}}" wx:else>
+        <view class="red" wx:if="{{isToday == item.isToday}}">今天</view>
+        <view>{{item.day}}</view>
+        <view wx:if="{{item.retail_price}}" class="red">￥{{item.retail_price}}</view>
+      </view>
+    </block>
+  </view>
+</view>
