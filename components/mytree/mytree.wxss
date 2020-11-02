@@ -1,0 +1,66 @@
+@import "../../../app.wxss";
+.list{
+  border-bottom: 1px solid #ebeef4;
+  padding:0 32rpx;
+  line-height: 92rpx;
+  font-size: 26rpx;
+}
+
+.item1{
+  padding-left:48rpx;
+}
+.item2{
+  padding-left:64rpx;
+}
+.item3{
+  padding-left: 80rpx;
+}
+.backgray1{
+  background-color: #f2f5fb;
+}
+.backgray2,
+.backgray3{
+  background-color: rgba(242,245,251,.5);
+}
+.icon-small{
+  width: 50rpx;
+  height: 40rpx;
+}
+.transform{
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.radio{
+  width:24rpx;
+  height:24rpx;
+  border-radius: 24rpx;
+  border: 2rpx solid #d2d5df;
+}
+.radio .radioinner{
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 18rpx;
+}
+.radioChecked{
+  color: var(--blue);
+}
+.radioChecked .radio{
+  border-color: var(--blue);
+}
+.radioChecked .radio  .radioinner{
+  background-color:  var(--blue);
+}
+.minusg{
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 24rpx;
+  border: 1px solid #d2d5df;
+}
+
+.addText{
+  font-size: 48rpx;
+  color: #d2d5df;
+  font-weight: 100;
+}

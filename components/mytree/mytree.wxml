@@ -1,0 +1,16 @@
+<view class="ul">
+<view class="list flex-sb {{model.checked?'radioChecked':''}}" catchtap='{{isBranch?"toggle":"tapItem"}}' data-itemid='{{model.category_id?model.category_id:model.brand_id}}'  data-name='{{ model.category_id?model.category_name:model.brand_name }}'  data-level='{{ model.level?model.level:0 }}'>
+    <view class="flex-all" style="width:50rpx;height:40rpx;" hidden="{{hideStree || model.brand_id}}">
+      <icon class="icon-small  transform" type="cancel" color="#d2d5df" size="20" wx:if="{{!open}}" hidden="{{!isBranch}}"></icon>
+      <image src="../../../zhy/resource/images/minusg.png" class="minusg" wx:else></image>
+    </view>
+    <view class="flex1 ellipss1">{{model.category_id?model.category_name:model.brand_name}}</view>
+    <view class="radio flex-all" wx:if="{{!isBranch&&!showAdd&&model.category_id}}">
+      <text class="radioinner "></text>
+    </view>
+    <view class="addText" bindtap="_showAddFn" wx:if="{{showAdd}}"  data-itemid='{{ model.category_id }}'  data-name='{{ model.category_name }}'  data-level='{{ model.level }}'>+</view>
+  </view>
+  <view style='padding-left: 16rpx;' wx:if='{{ isBranch }}' hidden='{{ !open }}'>
+    <mytree wx:for='{{ model.child_list }}' wx:key='id' model='{{ item }}' showAdd="{{showAdd}}" showRadio="{{showRadio}}" ></mytree>
+  </view>
+</view>
