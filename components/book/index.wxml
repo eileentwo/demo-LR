@@ -1,0 +1,69 @@
+
+<view class="mask" wx:if="{{showorder}}" catchtap="hideOrderFn">
+	<view class="drawer-box" catchtap="returnFn">
+		<view class="masktitle flex-all">{{ordermethod==0?'我要预约':'我的预约'}}</view>
+		<view wx:if="{{ordermethod<2}}">
+			<view class="maskitem flex-sb" catchtap="chooseShop">
+				<view>选择预约商家</view>
+				<view class="color9  w400 eellipsis-2">{{orderinfo.bname&&orderinfo.bname!=''?orderinfo.bname:'请选择'}}</view>
+			</view>
+			<view class="maskitem flex-sb">
+				<view>预约人姓名</view>
+				<input placeholder="请输入预约人姓名" disabled="{{ordermethod==1}}" value="{{orderinfo.name}}" class="color9 w400" bindinput="changeorderinfo" data-index="0"></input>
+			</view>
+			<view class="maskitem flex-sb">
+				<view>联系电话</view>
+				<input placeholder="请输入联系手机号码" type="number" disabled="{{ordermethod==1}}" value="{{orderinfo.tel}}" class="color9 w400" bindinput="changeorderinfo" data-index="1" maxlength="11"></input>
+			</view>
+			<view class="maskitem flex-sb">
+				<view>预约时间</view>
+				<view wx:if="{{ordermethod==1}}" class="color9">{{orderinfo.appointtime}}</view>
+				<picker mode = 'multiSelector' wx:else  bindchange="bindMultiPickerChange"  bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+					<input placeholder="请选择预约时间" disabled="true" value="{{orderinfo.selecttime}}" class="color9"></input>
+				</picker>
+			</view>
+			<view class="maskitem flex-sb">
+				<view>备注</view>
+				<input placeholder="{{ordermethod==1?'':'请输入备注内容'}}" disabled="{{ordermethod==1}}"  value="{{orderinfo.remarks==''||orderinfo.remarks=='undefined'?'':orderinfo.remarks}}" class="color9 w400" maxlength="11" bindinput="changeorderinfo" data-index="2"></input>
+			</view>
+		</view>
+		<scroll-view w-scroll-y scroll-y='true' class="shopscroll" bindscrolltolower="moreorderFn" wx:if="{{ordermethod==2}}">
+			<view wx:for="{{orderinfo}}" wx:key='index' class="olist">
+				<view class="flex-sb">
+					<view class="textR">预约时间：</view><view class="flex1 color9 textL">{{item.appointtime}}</view>
+					<text class="red">{{item.statustext}}</text>
+				</view>
+				<view class="flex-sb">
+					<view class="textR">预约商家：</view><view class="flex1 color9 textL eellipsis-2">{{item.bname}}</view>
+				</view>
+				<view class="flex-sb">
+					<view class="textR">预约人姓名：</view><view class="flex1 color9 textL eellipsis">{{item.name}}</view>
+				</view>
+				<view class="flex-sb">
+					<view class="textR">预约人电话：</view><view class="flex1 color9 textL ">{{item.tel}}</view>
+				</view>
+				<view class="flex-sb" hidden="{{item.remarks==''||item.remarks=='undefined'}}">
+					<view class="textR">备注：</view><view class="flex1 color9 eellipsis-2 textL">{{item.remarks}}</view>
+				</view>
+			</view>
+		</scroll-view>
+		<view class="submitbtn flex-all" bindtap="submitFn">{{ordermethod==0?'立刻预约':'我知道了'}}</view>
+	</view>
+</view>
+<view wx:if="{{showShop}}"  class="mask shopmask" bindtap="hideshop">
+	<view class="drawer-box shopbox" catchtap="returnFn">
+		<view class="masktitle flex-sb">
+			<input placeholder="请输入商家名称搜索" class="pr30 w400" value="{{shop}}" bindinput="setKeyword"></input>
+			<view class="submitbtn flex-all" catchtap="chooseShop">搜索</view>
+		</view>
+		<scroll-view w-scroll-y scroll-y='true' class="shopscroll {{app_type=='app'?'appscs':''}}" bindscrolltolower="scrollFn">
+			<view class="maskitem" wx:for="{{shops}}" wx:key='index' catchtap="choosItem" data-index="{{index}}">
+				<view class="{{choosed==index?'activeshop':''}} flex-andmid">
+					<image src="{{item.bimg}}" class="shopimg"></image>
+					<view class="w400 eellipsis-2">{{item.bname}}</view>
+				</view>
+			</view>
+		</scroll-view>
+		<view class="flex-all color9 h110" wx:if="{{isA}}">往上拉，查看更多商家</view>
+	</view>
+</view>

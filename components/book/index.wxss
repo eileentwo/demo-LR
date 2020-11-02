@@ -1,0 +1,43 @@
+@import "/app.wxss";
+.mask{z-index: 9;}
+.drawer-box{
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.masktitle{height: 100rpx;border-bottom: 2px solid var(--skin);margin-bottom: 30rpx;}
+.maskitem{height: 108rpx;border-bottom: 1px solid #eee;padding:0  32rpx 0 44rpx;}
+.color9{color: #999;text-align: right;}
+.submitbtn{width: 690rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  background: #ED414A;
+  border-radius: 46rpx;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  margin-top: 50rpx;
+}
+.shopmask{z-index:9999 ;}
+.shopbox{z-index: 99999;}
+.shopbox .submitbtn{width: 140rpx;height: 60rpx;line-height: 60rpx; margin-top: 0;}
+.shopbox .masktitle{padding-left: 32rpx;}
+.pr30{padding-right: 30rpx;}
+.shopscroll{max-height: 700rpx;padding: 0;}
+.appscs{
+  height: 400rpx;
+}
+.h110{height: 110rpx;}
+.shopimg{width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+.w400{width: 400rpx;}
+.shopscroll .flex-andmid{height: 104rpx;padding:0 30rpx;box-sizing: border-box;}
+.activeshop{background-color: #FFE6E3;border-radius: 10rpx;width: 684rpx;}
+.olist{width: 630rpx;padding: 20rpx;border-radius: 10rpx;box-shadow: 0rpx 0rpx 10rpx #eee;  margin:0 6rpx 20rpx ;}
+.olist .flex-sb{align-items: flex-start;line-height: 50rpx;font-size: 28rpx;}
+.textR{width: 170rpx;text-align: right;}
+.textL{text-align: left;}
+.red{color: #f33030;}
