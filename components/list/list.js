@@ -10,7 +10,7 @@ Component({
       //获取所有的标题 距离顶部的距离 把其存放到一个数组中去
       this.createSelectorQuery().selectAll(".content").boundingClientRect((rect) => {
         //加了定时器就能获取到
-        //卧槽 太激动了 解决了  这个破周期有bug只会执行一次  然后数据初次请求过来的
+        //这个周期有bug只会执行一次  然后数据初次请求过来的
         //解决方案  在父组件中传这个数组的时候判断一下是不是空数组
         //console.log(rect, "---")
         rect.forEach(item => {
