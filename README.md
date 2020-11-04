@@ -23,3 +23,4 @@ JS方法：
       list, showBox, level, itemid,itemname
     })
   },
+//楼层联动主页面例子page中的list
